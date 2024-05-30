@@ -23,6 +23,6 @@ jobs:
         NAME: TestKernel
       with:
         arch: arm64
-        compiler: aosp-clang/android13-release/clang-r416183b/binutils
+        compiler: aosp-clang/android12-release/clang-r416183b/binutils
         defconfig: KharaMe_defconfig
         image: Image.gz-dtb
