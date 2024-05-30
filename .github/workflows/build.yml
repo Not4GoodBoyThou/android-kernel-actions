@@ -1,0 +1,28 @@
+name: Build on Workflow Dispatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout kernel source
+      uses: actions/checkout@v2
+
+    - name: Checkout zipper
+      uses: actions/checkout@v2
+      with:
+        repository: Not4GoodBoyThou/AnyKernel3
+        path: AnyKernel3
+
+    - name: Android kernel build
+      uses: Not4GoodBoyThou/android-kernel-actions@master
+      id: build
+      env:
+        NAME: TestKernel
+      with:
+        arch: arm64
+        compiler: aosp-clang/android13-release/clang-r416183b/binutils
+        defconfig: KharaMe_defconfig
+        image: Image.gz-dtb
