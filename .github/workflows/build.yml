@@ -12,6 +12,14 @@ jobs:
       with:
         repository: Not4GoodBoyThou/kernel_realme_sdm710
         path: kernel_realme_sdm710
+        ref: 13
+
+    - name: Checkout vendor source
+      uses: actions/checkout@v4
+      with:
+        repository: Not4GoodBoyThou/vendor_realme_RMX1971
+        path: vendor_realme_RMX1971
+        ref: 13    
 
     - name: Checkout zipper
       uses: actions/checkout@v4
@@ -26,6 +34,7 @@ jobs:
         NAME: KharaMe5Pro
         KERNEL_PATH: kernel_realme_sdm710
         ZIPPER_PATH: AnyKernel3
+        VENDOR_PATH: vendor_realme_RMX1971
         PYTHON_VERSION: 3
       with:
         arch: arm64
