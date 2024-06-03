@@ -1,4 +1,4 @@
-name: Build on Workflow Dispatch
+name: Build KharameKernel
 
 on:
   workflow_dispatch:
@@ -7,10 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout kernel source
+    - name: Checkout Kharame kernel source
       uses: actions/checkout@v4
       with:
-        repository: kaderbava/android_kernel_realme_sdm710
+        repository: Not4GoodBoyThou/kernel_realme_sdm710
         path: kernel_realme_sdm710
         ref: 13
 
@@ -47,5 +47,5 @@ jobs:
       with:
           to: ${{ secrets.CHANNEL_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: Kernel is built!, took ${{ steps.build.outputs.elapsed_time }} seconds.
+          message: KharaMe5Pro Kernel is built!, took ${{ steps.build.outputs.elapsed_time }} seconds.
           document: ${{ steps.build.outputs.outfile }}
