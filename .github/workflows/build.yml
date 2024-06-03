@@ -10,7 +10,7 @@ jobs:
     - name: Checkout kernel source
       uses: actions/checkout@v4
       with:
-        repository: Not4GoodBoyThou/kernel_realme_sdm710
+        repository: kaderbava/android_kernel_realme_sdm710
         path: kernel_realme_sdm710
         ref: 13
 
