@@ -174,11 +174,12 @@ if [[ $arch = "arm64" ]]; then
         done
 
         if $binutils; then
-            make_opts="CC=clang"
+            make_opts="CC=ccache clang"
             host_make_opts="HOSTCC=clang HOSTCXX=clang++"
         else
-            make_opts="CC=clang LD=ld.lld NM=llvm-nm STRIP=llvm-strip OBJCOPY=llvm-objcopy"
-            make_opts+=" OBJDUMP=llvm-objdump READELF=llvm-readelf LLVM_IAS=1"
+            make_opts="CC=ccache clang"
+            make_opts+="LD=ld.lld NM=llvm-nm STRIP=llvm-strip OBJCOPY=llvm-objcopy"
+            make_opts+="OBJDUMP=llvm-objdump READELF=llvm-readelf LLVM_IAS=1"
             host_make_opts="HOSTCC=clang HOSTCXX=clang++ HOSTLD=ld.lld HOSTAR=llvm-ar"
         fi
 
