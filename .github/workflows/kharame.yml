@@ -27,6 +27,12 @@ jobs:
         repository: Not4GoodBoyThou/AnyKernel3
         path: AnyKernel3
 
+    - name: Setup ccache
+      uses: hendrikmuhs/ccache-action@v1.2
+      with:
+        key: build-kernel-arm64_KharaMe
+        max-size: 4G
+
     - name: Android kernel build
       uses: Not4GoodBoyThou/android-kernel-actions@master
       id: build
