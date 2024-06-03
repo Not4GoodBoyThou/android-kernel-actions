@@ -29,6 +29,7 @@ image="$4"
 repo_name="${GITHUB_REPOSITORY/*\/}"
 zipper_path="${ZIPPER_PATH:-zipper}"
 kernel_path="${KERNEL_PATH:-.}"
+vendor_path="$kernel_path/${VENDOR_PATH:-vendor}"
 name="${NAME:-$repo_name}"
 python_version="${PYTHON_VERSION:-3}"
 
