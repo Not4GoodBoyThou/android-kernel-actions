@@ -7,12 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
-    - name: Setup ccache
-      uses: hendrikmuhs/ccache-action@v1.2
-      with:
-        key: build-kernel-arm64_KharaMe
-        max-size: 4G
         
     - name: Checkout Kharame kernel source
       uses: actions/checkout@v4
@@ -46,7 +40,7 @@ jobs:
       with:
         arch: arm64
         compiler: aosp-clang/android12-release/clang-r416183b/binutils
-        defconfig: KharaMe_defconfig
+        defconfig: nethunter_defconfig
         image: Image.gz-dtb
         
     - name: Release build
