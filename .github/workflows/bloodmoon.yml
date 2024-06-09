@@ -7,13 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Setup ccache
-      uses: hendrikmuhs/ccache-action@v1.2
-      with:
-        key: build-kernel-arm64_BloodMoon
-        max-size: 4G
-        
+ 
     - name: Checkout BloodMoon kernel source
       uses: actions/checkout@v4
       with:
