@@ -214,6 +214,12 @@ if ! make O=out $arch_opts $make_opts $host_make_opts $defconfig; then
     err "Failed generating .config, make sure it is actually available in arch/${arch}/configs/ and is a valid defconfig file"
     exit 2
 fi
+
+make $arch_opts $make_opts $host_make_opts $defconfig module_prepare
+
+make $arch_opts $make_opts $host_make_opts $defconfig modules_install INSTALL_MOD_PATH=./
+
+
 msg "Begin building kernel..."
 
 make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)" prepare
