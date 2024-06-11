@@ -222,8 +222,11 @@ make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)" prepare
 
 if ! make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)"; then
     err "Failed building kernel, probably the toolchain is not compatible with the kernel, or kernel source problem"
-    make $arch_opts $make_opts $host_make_opts module_prepare
-    make $arch_opts $make_opts $host_make_opts INSTALL_MOD_PATH=. INSTALL_MOD_STRIP=1 modules_install
+    make V=1 $arch_opts $make_opts $host_make_opts mrproper
+
+    make V=1 $arch_opts $make_opts $host_make_opts module_prepare
+
+    make V=1 $arch_opts $make_opts $host_make_opts INSTALL_MOD_PATH=. INSTALL_MOD_STRIP=1 modules_install
 
     exit 3
 fi
