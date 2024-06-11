@@ -215,17 +215,16 @@ if ! make O=out $arch_opts $make_opts $host_make_opts $defconfig; then
     exit 2
 fi
 
-make $arch_opts $make_opts $host_make_opts $defconfig module_prepare
-
-make $arch_opts $make_opts $host_make_opts $defconfig modules_install INSTALL_MOD_PATH=./
-
-
 msg "Begin building kernel..."
 
 make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)" prepare
 
+
 if ! make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)"; then
     err "Failed building kernel, probably the toolchain is not compatible with the kernel, or kernel source problem"
+    make $arch_opts $make_opts $host_make_opts module_prepare
+    make $arch_opts $make_opts $host_make_opts INSTALL_MOD_PATH=. INSTALL_MOD_STRIP=1 modules_install
+
     exit 3
 fi
 set_output elapsed_time "$(echo "$(date +%s)"-"$start_time" | bc)"
