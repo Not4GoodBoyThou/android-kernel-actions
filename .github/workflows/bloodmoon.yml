@@ -13,7 +13,7 @@ jobs:
       with:
         repository: kaderbava/android_kernel_realme_sdm710
         path: kernel_realme_sdm710
-        ref: 13
+        ref: 14
 
     - name: Checkout vendor source
       uses: actions/checkout@v4
