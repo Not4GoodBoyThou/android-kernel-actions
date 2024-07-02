@@ -11,9 +11,9 @@ jobs:
     - name: Checkout Kharame kernel source
       uses: actions/checkout@v4
       with:
-        repository: realme-kernel-opensource/realme_Q_3pro_5pro_X_XT-AndroidR-kernel-source
+        repository: Not4GoodBoyThou/kernel_realme
         path: kernel_realme_sdm710
-        ref: master
+        ref: test_oem
 
     - name: Checkout vendor source
       uses: actions/checkout@v4
